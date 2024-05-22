@@ -15,7 +15,6 @@ class Instrument(Base):
     stock = Column(Integer)  # 3. Количество на складе
     category = Column(String)  # 5. Категория
     manufacturer = Column(String)  # 6. Производитель
-    # Добавьте другие характеристики инструмента, если они есть
 
 class User(Base):
     __tablename__ = 'users'
@@ -30,7 +29,6 @@ class Order(Base):
     user_id = Column(Integer, ForeignKey('users.id'))
     instrument_id = Column(Integer, ForeignKey('instruments.id'))
     quantity = Column(Integer)
-    # Добавьте другие поля заказа, если они есть
 
     user = relationship('User', backref='orders')
     instrument = relationship('Instrument', backref='orders')
